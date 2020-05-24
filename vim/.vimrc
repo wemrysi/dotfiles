@@ -147,16 +147,15 @@ let g:CommandTMaxCachedDirectories=0
 " Fix solarized dark for gitgutter
 highlight clear SignColumn
 
-" http://robots.thoughtbot.com/faster-grepping-in-vim/
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+" Ripgrep
+if executable('rg')
+  " Use rg over grep
+  set grepprg=rg\ --vimgrep
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " Use rg in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'rg --vimgrep --files --glob "" %s'
 
-  " ag is fast enough that CtrlP doesn't need to cache
+  " rg is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
 
@@ -164,8 +163,8 @@ endif
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " bind \ (backward slash) to grep shortcut
-command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
+command! -nargs=+ -complete=file -bar Rg silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Rg<SPACE>
 
 " http://stackoverflow.com/questions/16743112/open-item-from-quickfix-window-in-vertical-split
 autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
