@@ -1,0 +1,23 @@
+# Script to configure X, start common apps, and start xmonad.
+
+# Configure X
+xsetroot -cursor_name left_ptr &
+xrdb -merge ~/.Xresources &
+
+# Start the system tray
+stalonetray --kludges force_icons_size &
+
+# Start volume control
+pasystray &
+
+# Start bluetooth manager
+blueman-applet &
+
+# Start NetworkManager applet
+nm-applet &
+
+# Start two terminals
+urxvt -e mutt &
+
+# Start screensaver
+xscreensaver -no-splash &

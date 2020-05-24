@@ -1,0 +1,2 @@
+# Don't ignore all the files we're trying to manage
+!.*
