@@ -5,31 +5,25 @@
 set nocompatible
 filetype off
 
-" Inititalize vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Inititalize vim-plug
+call plug#begin('~/.vim/plugged')
 
-" vundle Plugins
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-fugitive'
-Plugin 'wincent/Command-T'
-Plugin 'ervandew/supertab'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'kien/ctrlp.vim'
-"Plugin 'kchmck/vim-coffee-script'
-Plugin 'mtscout6/vim-cjsx'
-Plugin 'benmills/vimux'
-Plugin 'janko-m/vim-test'
-Plugin 'raichoo/purescript-vim'
-"Plugin 'floobits/floobits-vim'
+" vim-plug Plugins
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'wincent/Command-T'
+Plug 'ervandew/supertab'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
+Plug 'altercation/vim-colors-solarized'
+Plug 'derekwyatt/vim-scala'
+Plug 'kien/ctrlp.vim'
+Plug 'benmills/vimux'
+Plug 'janko-m/vim-test'
+Plug 'raichoo/purescript-vim'
 
-" Finalize vundle
-call vundle#end()
-filetype plugin indent on
+" Finalize vim-plug
+call plug#end()
 
 " Nice pasting without fucked up tabbing
 " http://stackoverflow.com/questions/2861627/paste-in-insert-mode
