@@ -1,0 +1,30 @@
+[user]
+  name = Emrys Ingersoll
+  signingkey = 103C3FB26E1998C4
+[github]
+  user = wemrysi
+  actor = wemrysi
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  ctags = !.git/hooks/ctags
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = input
+[push]
+  default = tracking
+[init]
+  templatedir = ~/.git_template
+[rerere]
+  enabled = true
+[commit]
+  gpgsign = true
+[include]
+  path = ~/.sensitive/github.gitinc
