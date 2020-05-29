@@ -22,6 +22,8 @@
   default = tracking
 [init]
   templatedir = ~/.git_template
+[clone]
+  templatedir = ~/.git_template
 [rerere]
   enabled = true
 [commit]
