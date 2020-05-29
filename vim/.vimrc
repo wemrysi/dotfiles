@@ -91,6 +91,9 @@ set smarttab
 set shiftwidth=2
 set tabstop=2
 
+" also look for tags in the .git dir
+set tags=.git/tags,tags
+
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
