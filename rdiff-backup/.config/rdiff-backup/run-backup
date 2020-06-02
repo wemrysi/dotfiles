@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+/home/emrys/.nix-profile/bin/rdiff-backup --exclude-special-files --exclude-globbing-filelist /home/emrys/.config/rdiff-backup/home.exclude /home/emrys /mnt/c/Users/inger/WslBackup/Ubuntu-20.04/home/emrys
