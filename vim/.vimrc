@@ -21,6 +21,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'benmills/vimux'
 Plug 'janko-m/vim-test'
 Plug 'raichoo/purescript-vim'
+Plug 'hashivim/vim-terraform'
 
 " Finalize vim-plug
 call plug#end()
