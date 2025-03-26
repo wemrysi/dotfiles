@@ -14,16 +14,11 @@
   ci = commit
   co = checkout
   br = branch
-  ctags = !.git/hooks/ctags
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
 [push]
   default = tracking
-[init]
-  templatedir = ~/.git_template
-[clone]
-  templatedir = ~/.git_template
 [rerere]
   enabled = true
 [commit]
