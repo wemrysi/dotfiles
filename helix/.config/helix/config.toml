@@ -1,0 +1,8 @@
+theme = "solarized_dark_terminal"
+
+[editor]
+true-color = true
+color-modes = true
+
+[editor.lsp]
+display-messages = true
