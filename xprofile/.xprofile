@@ -1,23 +1,23 @@
 # Script to configure X, start common apps, and start xmonad.
 
-# Configure X
-xsetroot -cursor_name left_ptr &
-xrdb -merge ~/.Xresources &
+# There is a bug in nixos where this script ends up being executed twice
+# this makes it idempotent
+if [ -z $_XPROFILE_SOURCED ]; then
+  export _XPROFILE_SOURCED=1
 
-# Start the system tray
-stalonetray --kludges force_icons_size &
+  # Configure X
+  xsetroot -cursor_name left_ptr &
+  #xrdb -merge ~/.Xresources &
 
-# Start volume control
-pasystray &
+  # Start the system tray
+  stalonetray &
 
-# Start bluetooth manager
-blueman-applet &
+  # Start volume control
+  pasystray &
 
-# Start NetworkManager applet
-nm-applet &
+  # Start bluetooth manager
+  blueman-applet &
 
-# Start two terminals
-urxvt -e mutt &
-
-# Start screensaver
-xscreensaver -no-splash &
+  # Start 1password
+  1password --silent &
+fi

@@ -26,7 +26,7 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal = "/home/emrys/.nix-profile/bin/urxvt"
+myTerminal = "/run/current-system/sw/bin/alacritty"
 
 
 ------------------------------------------------------------------------
@@ -126,11 +126,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- Lock the screen using xscreensaver.
   , ((modMask .|. controlMask, xK_l),
-     spawn "xscreensaver-command -lock")
+     spawn "i3lock --clock --indicator --time-str=\"%H:%M:%S\" --date-str=\"%A, %Y-%m-%d\"")
 
   -- Launch dmenu, use this to launch programs without a key binding.
   , ((modMask, xK_p),
-     spawn "dmenu_run")
+     spawn "dmenu_run -f --render_minheight 48")
 
   -- Take a screenshot in select mode.
   -- After pressing this key binding, click a window, or draw a rectangle with
@@ -144,16 +144,16 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      spawn "screenshot")
 
   -- Mute volume.
-  , ((modMask .|. controlMask, xK_m),
-     spawn "amixer -q set Master toggle")
+  -- , ((modMask .|. controlMask, xK_m),
+  --    spawn "amixer -q set Master toggle")
 
   -- Decrease volume.
-  , ((modMask .|. controlMask, xK_j),
-     spawn "amixer -q set Master 5%-")
+  -- , ((modMask .|. controlMask, xK_j),
+  --    spawn "amixer -q set Master 5%-")
 
   -- Increase volume.
-  , ((modMask .|. controlMask, xK_k),
-     spawn "amixer -q set Master 5%+")
+  -- , ((modMask .|. controlMask, xK_k),
+  --    spawn "amixer -q set Master 5%+")
 
   -- Focus latest urgent window
   , ((modMask, xK_u),
@@ -310,10 +310,10 @@ myStartupHook = return ()
 --
 main = do
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
-  xmonad $ withUrgencyHook NoUrgencyHook defaults
+  xmonad $ docks $ withUrgencyHook NoUrgencyHook defaults
       { manageHook = manageDocks <+> myManageHook
       , layoutHook = avoidStruts $ layoutHook defaults
-      , handleEventHook = handleEventHook defaults <+> docksEventHook
+      , handleEventHook = handleEventHook defaults
       , logHook = dynamicLogWithPP $ xmobarPP
           { ppOutput = hPutStrLn xmproc
           , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100
