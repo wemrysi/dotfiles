@@ -161,7 +161,6 @@
   environment.systemPackages = with pkgs; [
     alacritty
     alsa-utils
-    autojump
     blueman
     discord
     dmenu-rs
@@ -182,11 +181,18 @@
     XCURSOR_SIZE = "64";
   };
 
+  # Docker
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = [ "emrys" ];
   };
+  programs.autojump.enable = true;
   programs.gnupg.agent = {
     enable = true;
     settings = {
