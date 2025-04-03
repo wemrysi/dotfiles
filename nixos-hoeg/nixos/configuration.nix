@@ -102,22 +102,6 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "emrys";
 
-  services.actkbd = {
-    enable = true;
-    bindings = [
-      # "Mute" media key
-      { keys = [ 113 ]; events = [ "key" ]; command = "${pkgs.alsa-utils}/bin/amixer -q -c 0 set Master toggle"; }
-      # "Lower Volume" media key
-      { keys = [ 114 ]; events = [ "key" "rep" ]; command = "${pkgs.alsa-utils}/bin/amixer -q -c 0 set Master 1%- unmute"; }
-      # "Raise Volume" media key
-      { keys = [ 115 ]; events = [ "key" "rep" ]; command = "${pkgs.alsa-utils}/bin/amixer -q -c 0 set Master 1%+ unmute"; }
-      # "Dim" media key
-      { keys = [ 224 ]; events = [ "key" ]; command = "${pkgs.light}/bin/light -s sysfs/backlight/intel_backlight -U 5"; }
-      # "Brighten" media key
-      { keys = [ 225 ]; events = [ "key" ]; command = "${pkgs.light}/bin/light -s sysfs/backlight/intel_backlight -A 5"; }
-    ];
-  };
-
   # Key remapping
   services.keyd = {
     enable = true;

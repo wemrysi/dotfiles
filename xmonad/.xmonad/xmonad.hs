@@ -2,6 +2,7 @@
 -- Author: Vic Fryzel
 -- http://github.com/vicfryzel/xmonad-config
 
+import Graphics.X11.ExtraTypes.XF86
 import System.IO
 import System.Exit
 import XMonad
@@ -16,7 +17,7 @@ import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
+--import XMonad.Util.EZConfig(additionalKeysP)
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -52,9 +53,8 @@ myWorkspaces = ["1:coms","2:web","3:code","4:compile","5:docs"] ++ map show [6..
 --
 myManageHook = composeAll
     [ className =? "discord"          --> doShift "1:coms"
-    , className =? "Firefox"          --> doShift "2:web"
+    , className =? "firefox"          --> doShift "2:web"
     , resource  =? "desktop_window"   --> doIgnore
-    , className =? "Pidgin"           --> doShift "1:coms"
     , className =? "stalonetray"      --> doIgnore
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
@@ -144,16 +144,24 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      spawn "screenshot")
 
   -- Mute volume.
-  -- , ((modMask .|. controlMask, xK_m),
-  --    spawn "amixer -q set Master toggle")
+  , ((noModMask, xF86XK_AudioMute),
+     spawn "amixer -q set Master toggle")
 
   -- Decrease volume.
-  -- , ((modMask .|. controlMask, xK_j),
-  --    spawn "amixer -q set Master 5%-")
+  , ((noModMask, xF86XK_AudioLowerVolume),
+     spawn "amixer -q set Master 5%-")
 
   -- Increase volume.
-  -- , ((modMask .|. controlMask, xK_k),
-  --    spawn "amixer -q set Master 5%+")
+  , ((noModMask, xF86XK_AudioRaiseVolume),
+     spawn "amixer -q set Master 5%+")
+
+  -- Decrease brightness.
+  , ((noModMask, xF86XK_MonBrightnessDown),
+     spawn "light -s sysfs/backlight/intel_backlight -U 5")
+
+  -- Increase brightness.
+  , ((noModMask, xF86XK_MonBrightnessUp),
+     spawn "light -s sysfs/backlight/intel_backlight -A 5")
 
   -- Focus latest urgent window
   , ((modMask, xK_u),
@@ -226,9 +234,6 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- Decrement the number of windows in the master area.
   , ((modMask, xK_period),
      sendMessage (IncMasterN (-1)))
-
-  -- Toggle the status bar gap.
-  -- TODO: update this binding with avoidStruts, ((modMask, xK_b),
 
   -- Quit xmonad.
   , ((modMask .|. shiftMask, xK_q),
