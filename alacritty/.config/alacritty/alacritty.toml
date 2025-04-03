@@ -3,4 +3,4 @@ import = [ "solarized_dark.toml" ]
 
 [font]
 normal = { family = "Fira Code", style = "Regular" }
-size = 9
+size = 8
