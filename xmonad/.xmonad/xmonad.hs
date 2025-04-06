@@ -34,7 +34,7 @@ myTerminal = "/run/current-system/sw/bin/alacritty"
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
-myWorkspaces = ["1:coms","2:web","3:code","4:compile","5:docs"] ++ map show [6..9]
+myWorkspaces = ["1:coms","2:web","3:code","4:compile","5:docs","6:game"] ++ map show [7..9]
 
 
 ------------------------------------------------------------------------
@@ -52,11 +52,14 @@ myWorkspaces = ["1:coms","2:web","3:code","4:compile","5:docs"] ++ map show [6..
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "discord"          --> doShift "1:coms"
-    , className =? "firefox"          --> doShift "2:web"
-    , resource  =? "desktop_window"   --> doIgnore
-    , className =? "stalonetray"      --> doIgnore
-    , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
+    [ className =? "discord"           --> doShift "1:coms"
+    , className =? "firefox"           --> doShift "2:web"
+    , resource  =? "desktop_window"    --> doIgnore
+    , className =? "stalonetray"       --> doIgnore
+    -- PoE2
+    , className =? "steam_app_2694490" --> (doShift "6:game" <+> doFullFloat)
+    , isFullscreen                     --> (doF W.focusDown <+> doFullFloat)
+    ]
 
 
 ------------------------------------------------------------------------
@@ -317,7 +320,7 @@ main = do
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
   xmonad $ docks $ withUrgencyHook NoUrgencyHook defaults
       { manageHook = manageDocks <+> myManageHook
-      , layoutHook = avoidStruts $ layoutHook defaults
+      , layoutHook = smartBorders $ layoutHook defaults
       , handleEventHook = handleEventHook defaults
       , logHook = dynamicLogWithPP $ xmobarPP
           { ppOutput = hPutStrLn xmproc
@@ -352,7 +355,7 @@ defaults = def {
     mouseBindings      = myMouseBindings,
 
     -- hooks, layouts
-    layoutHook         = smartBorders $ myLayout,
+    layoutHook         = myLayout,
     manageHook         = myManageHook,
     startupHook        = myStartupHook
 }

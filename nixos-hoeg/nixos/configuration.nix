@@ -11,7 +11,6 @@
     ];
 
   # Bootloader.
-  boot.loader.grub.fontSize = 18;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;
 
@@ -134,7 +133,7 @@
   users.users.emrys = {
     isNormalUser = true;
     description = "Emrys Ingersoll";
-    extraGroups = [ "networkmanager" "video" "wheel" ];
+    extraGroups = [ "gamemode" "networkmanager" "video" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [];
   };
@@ -150,6 +149,7 @@
     dmenu-rs
     helix
     i3lock-color
+    loupe
     pasystray
     stalonetray
     stow
@@ -194,6 +194,35 @@
     lockerCommand = "${pkgs.i3lock-color}/bin/i3lock --nofork --clock --indicator";
   };
   programs.zsh.enable = true;
+
+  specialisation.nvidia.configuration = {
+    # see https://nixos.wiki/wiki/Nvidia
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+    services.xserver.videoDrivers = ["nvidia"];
+    hardware.nvidia = {
+      modesetting.enable = true;
+      nvidiaSettings = true;
+      open = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      prime = {
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+        sync.enable = true;
+      };
+    };
+
+    environment.systemPackages = with pkgs; [
+      heroic
+    ];
+    programs.gamemode = {
+      enable = true;
+      settings.general.inhibit_screensaver = 0;
+    };
+    programs.steam.enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
