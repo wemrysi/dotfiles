@@ -139,7 +139,13 @@
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "electron-33.4.11"
+    ];
+  };
 
   environment.systemPackages = with pkgs; [
     alacritty
@@ -215,13 +221,17 @@
     };
 
     environment.systemPackages = with pkgs; [
-      heroic
     ];
     programs.gamemode = {
       enable = true;
       settings.general.inhibit_screensaver = 0;
     };
-    programs.steam.enable = true;
+    programs.steam = {
+      enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
   };
 
   # This value determines the NixOS release from which the default
