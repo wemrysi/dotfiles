@@ -1,8 +1,20 @@
 theme = "solarized_dark_terminal"
 
 [editor]
-true-color = true
 color-modes = true
+#end-of-line-diagnostics = "hint"
+true-color = true
+
+[editor.indent-guides]
+character = "|"
+render = true
+
+#[editor.inline-diagnostics]
+#cursor-line = "error"
+#other-lines = "disable"
 
 [editor.lsp]
 display-messages = true
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name"]
