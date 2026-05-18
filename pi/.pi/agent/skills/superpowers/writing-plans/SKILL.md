@@ -15,8 +15,15 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 
 **Context:** If working in an isolated worktree, it should have been created via the `superpowers:using-git-worktrees` skill at execution time.
 
-**Save plans to:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
-- (User preferences for plan location override this default)
+**Save plans to:** `~/work/precog/planning/<repo-name>/plans/YYYY-MM-DD-<feature-name>.md`
+
+Determine `<repo-name>` with:
+```bash
+COMMON_ABS=$(cd "$(git rev-parse --git-common-dir)" && pwd -P)
+REPO_NAME=$(basename "$(dirname "$COMMON_ABS")")
+REPO_NAME=${REPO_NAME%.git}
+```
+This works from any worktree. Create the directory if it doesn't exist: `mkdir -p ~/work/precog/planning/$REPO_NAME/plans`
 
 ## Scope Check
 
@@ -135,7 +142,7 @@ If you find issues, fix them inline. No need to re-review — just fix and move 
 
 After saving the plan, offer execution choice:
 
-**"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. Two execution options:**
+**"Plan complete and saved to `~/work/precog/planning/<repo-name>/plans/<filename>.md`. Two execution options:**
 
 **1. Subagent-Driven (recommended)** - I dispatch a fresh subagent per task, review between tasks, fast iteration
 

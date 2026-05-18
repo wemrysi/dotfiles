@@ -134,9 +134,19 @@ producing the result they'd get from executing their plan?" Stay on the question
 Maintain a session file that persists the state of the interrogation across conversations. This
 file is the source of truth for what has been discussed, decided, and deferred.
 
-**Location**: `grill-me-sessions/<plan-name>.grill.md` in the current working directory. Ask the
-user for a short plan name at the start of a new session. If a session file already exists, resume
-from where you left off.
+**Location**: `~/work/precog/planning/<repo-name>/grill-me-sessions/<plan-name>.grill.md`
+
+Determine `<repo-name>` with:
+```bash
+COMMON_ABS=$(cd "$(git rev-parse --git-common-dir)" && pwd -P)
+REPO_NAME=$(basename "$(dirname "$COMMON_ABS")")
+REPO_NAME=${REPO_NAME%.git}
+```
+This works from any worktree. Create the directory if it doesn't exist:
+`mkdir -p ~/work/precog/planning/$REPO_NAME/grill-me-sessions`
+
+Ask the user for a short plan name at the start of a new session. If a session file already
+exists, resume from where you left off.
 
 **Format**:
 
