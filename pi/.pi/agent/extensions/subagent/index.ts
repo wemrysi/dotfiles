@@ -1,0 +1,1 @@
+/nix/store/5lljwvw2yxq59mqnclpcrf7r8xg9nvrr-pi-0.73.0/lib/node_modules/@mariozechner/pi-coding-agent/examples/extensions/subagent/index.ts
