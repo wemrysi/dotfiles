@@ -56,10 +56,9 @@ myManageHook = composeAll
     , className =? "firefox"           --> doShift "2:web"
     , resource  =? "desktop_window"    --> doIgnore
     , className =? "stalonetray"       --> doIgnore
-    -- PoE2
-    , className =? "steam_app_2694490" --> (doShift "6:game" <+> doFullFloat)
-    , title     =? "Last Epoch"        --> (doShift "6:game" <+> doFullFloat)
     , title     =? "Path of Exile"     --> (doShift "6:game" <+> doFullFloat)
+    , title     =? "Path of Exile 2"   --> (doShift "6:game" <+> doFullFloat)
+    , title     =? "Last Epoch"        --> (doShift "6:game" <+> doFullFloat)
     , isFullscreen                     --> (doF W.focusDown <+> doFullFloat)
     ]
 
