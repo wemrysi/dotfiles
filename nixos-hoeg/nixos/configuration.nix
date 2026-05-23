@@ -138,7 +138,18 @@
     packages = with pkgs; [];
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+    };
+    optimise.automatic = true;
+  };
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -160,13 +171,14 @@
     stalonetray
     stow
     tmux
+    xss-lock
     xmobar
+    (writeShellScriptBin "lock-now" ''
+      exec ${i3lock-color}/bin/i3lock --nofork --clock --indicator
+    '')
   ];
 
   environment.variables = {
-    GDK_SCALE = "2";
-    GDK_DPI_SCALE = "0.4";
-    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     XCURSOR_SIZE = "64";
   };
@@ -194,12 +206,28 @@
   programs.light.enable = true;
   programs.nm-applet.enable = true;
   programs.ssh.startAgent = true;
-  programs.xss-lock = {
-    enable = true;
-    extraOptions = [ "--transfer-sleep-lock" ];
-    lockerCommand = "${pkgs.i3lock-color}/bin/i3lock --nofork --clock --indicator";
-  };
   programs.zsh.enable = true;
+
+  services.logind = {
+    lidSwitch = "suspend";
+    lidSwitchExternalPower = "suspend";
+    lidSwitchDocked = "ignore";
+  };
+
+  security.pam.services.i3lock.enable = true;
+
+  systemd.user.services.xss-lock = {
+    description = "X session locker";
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+
+    serviceConfig = {
+      ExecStart = "${pkgs.xss-lock}/bin/xss-lock --transfer-sleep-lock -- ${pkgs.i3lock-color}/bin/i3lock --nofork --clock --indicator";
+      Restart = "on-failure";
+      RestartSec = 2;
+    };
+  };
 
   specialisation.nvidia.configuration = {
     # see https://nixos.wiki/wiki/Nvidia
