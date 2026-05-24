@@ -1,5 +1,5 @@
 Config {
-    font    = "xft:Fira Code:size=10:antialias=true:hinting=true",
+    font    = "xft:Fira Code:size=9:antialias=true:hinting=true",
     dpi     = 192,
     bgColor = "#000000",
     fgColor = "#ffffff",
@@ -19,5 +19,5 @@ Config {
     ],
     sepChar  = "%",
     alignSep = "}{",
-    template = "%XMonadLog% }{ %cpu%   %memory%   %wlp0s20f3wi%: %wlp0s20f3%   %vol%   %bright%   %battery%   <fc=#FFFFCC>%date%</fc>   %KPSN%"
+    template = "%XMonadLog% }{ %cpu%   %memory%   %wlp0s20f3wi%: %wlp0s20f3%   Vol: %vol%   %bright%   %battery%   <fc=#FFFFCC>%date%</fc>   %KPSN%"
 }
