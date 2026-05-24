@@ -122,11 +122,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- Decrease brightness.
   , ((noModMask, xF86XK_MonBrightnessDown),
-     spawn "light -s sysfs/backlight/intel_backlight -U 5")
+     spawn "xbacklight -dec 5")
 
   -- Increase brightness.
   , ((noModMask, xF86XK_MonBrightnessUp),
-     spawn "light -s sysfs/backlight/intel_backlight -A 5")
+     spawn "xbacklight -inc 5")
 
   -- Focus latest urgent window.
   , ((modMask, xK_u),
@@ -249,9 +249,15 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 ------------------------------------------------------------------------
 -- Status bar pretty-printer
 --
+
+-- Pad a string to exactly n chars so the title section has a fixed width.
+-- Must be applied before xmobarColor so color tags don't skew the length.
+padToLen :: Int -> String -> String
+padToLen n s = take n (s ++ repeat ' ')
+
 myXmobarPP :: PP
 myXmobarPP = xmobarPP
-    { ppTitle   = xmobarColor xmobarTitleColor "" . shorten 50
+    { ppTitle   = xmobarColor xmobarTitleColor "" . padToLen 50 . shorten 50
     , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor ""
     , ppSep     = "   "
     , ppUrgent  = xmobarColor "yellow" "red" . xmobarStrip
