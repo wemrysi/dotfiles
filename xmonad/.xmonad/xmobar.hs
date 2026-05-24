@@ -3,8 +3,7 @@ Config {
     dpi     = 192,
     bgColor = "#000000",
     fgColor = "#ffffff",
-    position = TopP 0 144,
-    height   = 48,
+    position = TopHM 48 0 144 0 0,
     lowerOnStart = True,
     commands = [
         Run Weather "KPSN" ["-t","<tempF>F <skyCondition>","-L","64","-H","77","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
