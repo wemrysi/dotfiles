@@ -1,5 +1,5 @@
 Config {
-    font    = "xft:Fira Code:size=9:antialias=true:hinting=true",
+    font    = "xft:Fira Code:size=10:antialias=true:hinting=true",
     dpi     = 192,
     bgColor = "#000000",
     fgColor = "#ffffff",

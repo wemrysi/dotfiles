@@ -257,7 +257,7 @@ padToLen n s = take n (s ++ repeat ' ')
 
 myXmobarPP :: PP
 myXmobarPP = xmobarPP
-    { ppTitle   = xmobarColor xmobarTitleColor "" . padToLen 30 . shorten 30
+    { ppTitle   = xmobarColor xmobarTitleColor "" . padToLen 50 . shorten 50
     , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor ""
     , ppSep     = "   "
     , ppUrgent  = xmobarColor "yellow" "red" . xmobarStrip
