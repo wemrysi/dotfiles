@@ -6,7 +6,7 @@ Config {
     position = TopHM 48 0 264 0 0,
     lowerOnStart = True,
     commands = [
-        Run Weather "KPSN" ["-t","<tempF>F <skyCondition>","-L","64","-H","77","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
+        Run Weather "KEMT" ["-t","<tempF>F <skyCondition>","-L","64","-H","77","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
         Run Cpu ["-t","Cpu: <total>%","-L","30","-H","60","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC","-w","3"] 10,
         Run Memory ["-t","Mem: <usedratio>%","-H","8192","-L","4096","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
         Run Wireless "wlp0s20f3" ["-t","<essid>","-H","80","-L","40","-l","#FFB6B0","-h","#CEFFAC","-n","#FFFFCC"] 50,
@@ -19,5 +19,5 @@ Config {
     ],
     sepChar  = "%",
     alignSep = "}{",
-    template = "%XMonadLog% }{ %cpu%   %memory%   %wlp0s20f3wi%: %wlp0s20f3%   Vol: %default:Master%   %bright%   %battery%   <fc=#FFFFCC>%date%</fc>   %KPSN%"
+    template = "%XMonadLog% }{ %cpu%   %memory%   %wlp0s20f3wi%: %wlp0s20f3%   Vol: %default:Master%   %bright%   %battery%   <fc=#FFFFCC>%date%</fc>   %KEMT%"
 }
