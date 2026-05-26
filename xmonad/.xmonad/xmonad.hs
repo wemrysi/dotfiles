@@ -31,7 +31,8 @@ myWorkspaces = ["1:coms","2:web","3:code","4:compile","5:docs","6:game"] ++ map 
 -- Window rules
 --
 myManageHook = composeAll
-    [ className =? "discord"           --> doShift "1:coms"
+    [ isDialog                         --> doCenterFloat
+    , className =? "discord"           --> doShift "1:coms"
     , className =? "firefox"           --> doShift "2:web"
     , resource  =? "desktop_window"    --> doIgnore
     , className =? "stalonetray"       --> doIgnore
