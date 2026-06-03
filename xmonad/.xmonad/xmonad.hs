@@ -95,7 +95,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- Lock the screen using i3lock.
   , ((modMask .|. controlMask, xK_l),
-     spawn "i3lock --clock --indicator --time-str=\"%H:%M:%S\" --date-str=\"%A, %Y-%m-%d\"")
+     spawn "loginctl lock-session")
 
   -- Launch dmenu.
   , ((modMask, xK_p),
