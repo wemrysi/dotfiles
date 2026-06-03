@@ -3,7 +3,7 @@
   "enableInstallTelemetry": false,
   "theme": "dark",
   "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-5.3-codex",
+  "defaultModel": "claude-sonnet-4.6",
   "enabledModels": [
     "github-copilot/claude-opus-4.6",
     "github-copilot/claude-sonnet-4.6",

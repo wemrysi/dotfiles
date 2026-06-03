@@ -437,6 +437,7 @@ export default function (pi: ExtensionAPI) {
 			"Modes: single (agent + task), parallel (tasks array), chain (sequential with {previous} placeholder).",
 			'Default agent scope is "user" (from ~/.pi/agent/agents).',
 			'To enable project-local agents in .pi/agents, set agentScope: "both" (or "project").',
+			'IMPORTANT: Before invoking, always run `ls ~/.pi/agent/agents/` to discover available agent names. Never guess or infer agent names from descriptions — use only names found on disk.',
 		].join(" "),
 		parameters: SubagentParams,
 
