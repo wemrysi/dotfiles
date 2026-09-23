@@ -25,3 +25,7 @@
 - This machine's default PATH is minimal (no `java`, `jar`, `python`, `unzip`, etc).
   If a needed tool is missing, use `nix shell nixpkgs#<pkg> -c <command>` to run it
   ad hoc instead of assuming it's unavailable or working around its absence.
+
+## Task tracking (superpowers)
+
+- When a superpowers skill says to create a todo, mark one in_progress, or mark one complete, use beads-rust (`br`) — see the `beads-rust` skill and `skills/superpowers/using-superpowers/references/pi-tools.md`.

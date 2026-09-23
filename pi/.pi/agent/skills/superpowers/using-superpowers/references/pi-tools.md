@@ -5,7 +5,7 @@ Skills speak in actions ("dispatch a subagent", "create a todo", "read a file").
 | Action skills request | Pi equivalent |
 | --- | --- |
 | Dispatch a subagent (`Subagent (general-purpose):` template) | Use an installed subagent tool such as `subagent` from `pi-subagents` if available |
-| Task tracking ("create a todo", "mark complete") | Use an installed todo/task tool if available, otherwise track tasks in the plan or `TODO.md` |
+| Task tracking ("create a todo", "mark in_progress", "mark complete") | beads-rust (`br`) — load the `beads-rust` skill. Create a todo = `br create`; in_progress = `br update <id> --status=in_progress`; complete = `br close <id> --reason="Completed"` |
 
 ## Subagents
 
@@ -13,4 +13,10 @@ Pi core does not ship a standard subagent tool. The `pi-subagents` package is a 
 
 ## Task lists
 
-Pi core does not ship a standard task-list tool. If a todo/task extension is installed, use its documented tool. Otherwise use Superpowers plan files, checklists in Markdown, or a repo-local `TODO.md` for task tracking. Older Superpowers docs may refer to `TodoWrite`; treat that as the task-tracking action above.
+In this environment, task tracking is **beads-rust (`br`)**, not a todo tool or `TODO.md`. Whenever a skill says to create a todo, mark one in_progress, or mark one complete, use the equivalent `br` command, and load the `beads-rust` skill for initialization, dependencies, and sync rules.
+
+- "Create a todo per task/item" → one `br create --title="..." --type=task` per task or item. For plan tasks, title them `Task <N>: <name>` and wire sequential dependencies with `br dep add`.
+- "Mark the todo in_progress" → `br update <id> --status=in_progress`
+- "Mark the todo complete" → `br close <id> --reason="Completed"`
+
+The executing-plans / subagent-driven-development **ledger** (`<workspace>/progress.md`) is separate and still required: beads issues are the live task view, the ledger is the record. Older Superpowers docs may refer to `TodoWrite`; treat that as beads-rust too.
