@@ -1,2 +1,5 @@
 sessions/
 auth.json
+web-search-cache/
+web-search.json
+npm/node_modules/

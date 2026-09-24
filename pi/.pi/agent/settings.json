@@ -3,12 +3,26 @@
   "enableInstallTelemetry": false,
   "theme": "dark",
   "defaultProvider": "github-copilot",
-  "defaultModel": "claude-opus-5.5",
+  "defaultModel": "claude-sonnet-5",
   "enabledModels": [
     "github-copilot/claude-haiku-4.5",
     "github-copilot/claude-opus-5.5",
     "github-copilot/claude-sonnet-5",
-    "github-copilot/kimi-k2.7-code"
+    "github-copilot/kimi-k2.7-code",
+    "github-copilot/gpt-5.6-luna"
   ],
-  "defaultThinkingLevel": "medium"
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    "npm:pi-subagents",
+    "npm:pi-web-access"
+  ],
+  "subagents": {
+    "defaultThinking": "medium",
+    "agentOverrides": {
+      "scout": { "model": "github-copilot/gpt-5.6-luna", "thinking": "low" },
+      "worker": { "model": "github-copilot/claude-sonnet-5" },
+      "reviewer": { "model": "github-copilot/claude-sonnet-5", "thinking": "high" },
+      "oracle": { "model": "github-copilot/claude-opus-5.5", "thinking": "high" }
+    }
+  }
 }
