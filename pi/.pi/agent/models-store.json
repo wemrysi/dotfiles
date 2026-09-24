@@ -44,7 +44,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "claude-fable-5.1",
@@ -89,7 +90,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "claude-haiku-4.5",
@@ -128,7 +130,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "claude-opus-4.7",
@@ -173,7 +176,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "claude-opus-4.8",
@@ -219,7 +223,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "claude-opus-5",
@@ -265,7 +270,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "claude-opus-5.5",
@@ -315,7 +321,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "claude-sonnet-4.6",
@@ -358,7 +365,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "claude-sonnet-5",
@@ -401,7 +409,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gemini-3.5-flash",
@@ -443,7 +452,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gemini-3.6-flash",
@@ -485,7 +495,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gemini-3.7-flash",
@@ -527,7 +538,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gemini-3.8-flash",
@@ -569,7 +581,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-5-mini",
@@ -617,7 +630,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-5.3-codex",
@@ -665,7 +679,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-5.4",
@@ -724,7 +739,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-5.4-mini",
@@ -774,7 +790,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-5.4-nano",
@@ -818,7 +835,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-5.5",
@@ -877,7 +895,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-5.6-luna",
@@ -936,7 +955,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-5.6-sol",
@@ -995,7 +1015,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-5.6-terra",
@@ -1054,7 +1075,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-6-astra",
@@ -1113,7 +1135,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-6-luna",
@@ -1172,7 +1195,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "gpt-6-sol",
@@ -1231,7 +1255,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "grok-4.5",
@@ -1285,7 +1310,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "grok-4.6",
@@ -1339,7 +1365,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "grok-4.7",
@@ -1393,7 +1420,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "kimi-k2.7-code",
@@ -1435,7 +1463,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "kimi-k3",
@@ -1478,7 +1507,8 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "mai-code-1-flash-picker",
@@ -1512,7 +1542,8 @@
           "high": "high",
           "xhigh": null,
           "max": null
-        }
+        },
+        "type": "chat"
       },
       {
         "id": "mai-code-1.1-flash",
@@ -1557,11 +1588,12 @@
               "jpegQuality": 80
             }
           }
-        }
+        },
+        "type": "chat"
       }
     ],
-    "checkedAt": 1790197040464,
-    "lastModified": 1790167117000,
-    "etag": "W/\"fc813c63c095880864f0ea3915e3dcdf\""
+    "checkedAt": 1790264922933,
+    "lastModified": 1790253614000,
+    "etag": "W/\"8caa77f1a79ebcd0d84fb8c5c79b5dbb\""
   }
 }
